@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware # Add this line
-from services import generate_ai_ad
+from backend.services import generate_ai_ad
 
 app = FastAPI()
 
