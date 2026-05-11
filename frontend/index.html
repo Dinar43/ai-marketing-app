@@ -44,7 +44,7 @@
         resultDiv.style.display = "block";
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/generate?product=${product}`);
+           const response = await fetch(`https://ai-marketing-app-3a8m.onrender.com/generate?product=${product}`);
             const data = await response.json();
             adText.innerText = data.ad;
         } catch (error) {
