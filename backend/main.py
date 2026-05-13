@@ -1,23 +1,23 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware # Add this line
-from backend.services import generate_ai_ad
+from fastapi.middleware.cors import CORSMiddleware
+# Import your AI service here (Gemini, OpenAI, etc.)
+from backend.services import call_ai_service 
 
 app = FastAPI()
 
-# --- ADD THIS SECURITY SECTION ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # This allows all "waiters" to talk to the kitchen
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# ---------------------------------
-
-@app.get("/")
-def home():
-    return {"message": "AI Marketing Server is Online"}
 
 @app.get("/generate")
-def get_ad(product: str):
-    ad_text = generate_ai_ad(product)
-    return {"product": product, "ad": ad_text}
+def generate(product: str, platform: str = "Instagram"):
+    # The prompt now changes based on the platform!
+    prompt = f"Write a high-converting {platform} ad for {product}. Use emojis and a tone perfect for {platform} users."
+    
+    # Call your AI function
+    ai_response = call_ai_service(prompt)
+    
+    return {"ad": ai_response}
