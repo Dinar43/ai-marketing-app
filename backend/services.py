@@ -1,6 +1,6 @@
 import random
 
-def generate_ai_ad(product):
+def call_ai_service(product):
     # This mock version works without needing money or a real API key!
     mock_ads = [
         f"ESTABLISHED EXCELLENCE.\n\nIntroducing the all-new {product}. Designed for those who refuse to settle. Experience the future of craftsmanship today. #Luxury #Innovation",
