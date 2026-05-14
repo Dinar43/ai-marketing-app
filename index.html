@@ -57,8 +57,7 @@
 
         try {
             // Replace 'YOUR-BACKEND-URL' with your actual Render URL
-            const response = await fetch(`https://YOUR-BACKEND-URL.onrender.com/generate?product=${encodeURIComponent(product)}&platform=${platform}`);
-            const data = await response.json();
+            const response = await fetch(`https://ai-marketing-app-3a8m.onrender.com/generate?product=${encodeURIComponent(product)}&platform=${platform}`);
             adText.innerText = data.ad;
         } catch (error) {
             adText.innerText = "❌ Connection error. Is the backend running?";
